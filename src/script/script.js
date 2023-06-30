@@ -1,9 +1,11 @@
 const button = document.querySelector("button")
 let input = document.querySelector("input")
+const response = document.querySelector(".response")
 
 button.addEventListener("click", () => {
     if(input.value === 0 || input.value === "") {
         alert("Informe o seu peso corretamente, em KG.")
+        response.innerHTML = ""
         input.value = ""
         return
     }
@@ -12,7 +14,7 @@ button.addEventListener("click", () => {
     const valueInput = 35 * parseFloat(input.value)
     console.log(valueInput)
     if(valueInput < 1000) {
-        console.log("Necessario " + valueInput + "ML de agua por dia")
+        response.innerHTML = "Necessario " + valueInput + "ML de água por dia"
         input.value = ""
         return
     }
@@ -21,7 +23,7 @@ button.addEventListener("click", () => {
     const formatterValueToNumber = parseFloat(formatterValue)
     const result = formatterValueToNumber.toFixed(1)
 
-    console.log("Necessario " + result + 'L por dia.')
+    response.innerHTML = "Necessario " + result + 'L de água por dia.'
     
     input.value = ""
 
